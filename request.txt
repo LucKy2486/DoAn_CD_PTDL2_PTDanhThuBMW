@@ -1,0 +1,133 @@
+TRANG 1 — DASHBOARD (NGƯỜI BÁN HÀNG)
+🔹 Tổng doanh số (2010–2024)
+🔹 Doanh số năm gần nhất
+🔹 Model bán mạnh nhất
+🔹 Region hoạt động tốt nhất
+
+1.2 Biểu đồ doanh số theo năm (Line Chart)
+X: Year
+Y: Total Sales Volume
+Options: filter theo model, region
+
+1.3 Biểu đồ Top 5 Model (Horizontal Bar Chart)
+Hiển thị:
+X5
+3 Series
+X3
+5 Series
+X1
+
+1.4 Doanh số theo Region (Stacked Bar)
+EU
+Asia
+America
+Middle East
+
+TRANG 2 — DỰ ĐOÁN DOANH SỐ
+2.1 Form nhập
+Input	Loại
+Model	Dropdown
+Region	Dropdown
+Chọn Số năm dự đoán 2015-->2026
+Nút: "DỰ ĐOÁN"
+
+2.2 Kết quả
+Biểu đồ Prophet Forecast:
+Prediction line
+Trend line
+Upper / Lower confidence bounds
+Future dataframe
+Giải thích biểu đồ
+Đưa ra Nội dung nhận xét
+
+TRANG 3 — DỰ ĐOÁN GIÁ XE
+3.1 Form nhập
+Thông tin	   Kiểu nhập
+Model	           dropdown
+Year	        slider (2010–2024)
+Engine            Size (L) slider
+Mileage	            number
+Fuel Type	    dropdown
+Region	          dropdown
+Transmission	   dropdown
+Nút: "DỰ ĐOÁN GIÁ"
+
+3.2 Output
+🔹 Giá dự đoán:
+Giải thích mô hình (Feature Importance / SHAP)
+Đưa ra Gợi ý
+
+TRANG 4 — GỢI Ý XE PHÙ HỢP
+4.1 Form nhập yêu cầu
+Input	             Loại
+Ngân sách	    slider
+Mục đích	    text: “đi làm tiết kiệm”, “chở gia đình”…
+Fuel Type	    dropdown
+Body Type	     dropdown
+Mileage tối đa	      slider
+Color                dropdown
+Nút: "GỢI Ý XE"
+
+4.2 Danh sách gợi ý
+Hiển thị hình ảnh xe
+Giá
+Mileage
+Lý do phù hợp
+Gợi ý các xe khác
+
+4.3 So sánh xe
+Checkbox cho phép chọn 2 xe → hiển thị bảng so sánh
+
+TRANG 5 — PHÂN TÍCH DỮ LIỆU
+5.1 Heatmap tương quan
+Các biến:
+Price
+Engine Size
+Mileage
+Sales Volume
+Year
+Màu sắc dễ phân biệt.
+
+5.2 Biểu đồ phân phối
+Histogram giá
+Boxplot giá theo model
+Pie chart fuel type
+Bar chart region-wise sales
+
+5.3 Insight tự động
+VD: Dòng X5 bán mạnh nhất ở EU từ 2017 đến 2020.
+Xe Diesel giảm dần sau 2015.
+Hybrid tăng đều từ 2019.
+
+PHẦN 5 — PHONG CÁCH GIAO DIỆN
+-Tông màu gợi ý của BMW:
+Xanh dương BMW: #1C69D4
+Đen kim loại: #0A0A0A
+Trắng: #FFFFFF
+Xám: #C0C0C0
+
+-Font chữ
+Tiêu đề: Montserrat / Poppins
+Nội dung: Roboto
+
+-Bố cục trang
+Sidebar trái
+Main content chia 2–3 cột
+Card bo tròn 10–15px
+Icon: sử dụng emoji hoặc Font Awesome
+
+PHẦN 6 — CẤU TRÚC PROJECT STREAMLIT	
+/bmw_app
+│
+├── streamlit_app.py (Trang chủ)
+├── pages/
+│   ├── 1_Dashboard.py
+│   ├── 2_Forecast_Prophet.py
+│   ├── 3_Price_Prediction_LGBM.py
+│   ├── 4_Recommendations.py
+│   ├── 5_Analytics.py
+│   └── 6_DataViewer.py
+│
+├── model_lgb.txt
+├── model_prophet.pkl
+└── images/
